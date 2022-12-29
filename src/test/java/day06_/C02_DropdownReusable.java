@@ -2,6 +2,7 @@ package day06_;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -43,5 +44,16 @@ public class C02_DropdownReusable {
 
 
     }
+
+    @Test
+    public void test01(){
+        selectFromDropDown(driver.findElement(By.id("year")),"2005");
+        selectFromDropDown(driver.findElement(By.id("month")),"November");
+        selectFromDropDown(driver.findElement(By.id("day")), "10");
+        selectFromDropDown(driver.findElement(By.id("state")),"Texas");
+
+
+    }
+
 
 }
