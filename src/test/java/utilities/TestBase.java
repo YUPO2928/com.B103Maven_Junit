@@ -32,15 +32,15 @@ import java.time.Duration;
         driver.close();
     }
 
-    @Test
-    public void test01(){
-    //techproeducation ana sayfasına git ve title'ın "Bootcamps" icerdigini test edin.
-        driver.get("https://www.techproeducation.com");
-
-        String pageTitle = driver.getTitle();
-        Assert.assertTrue(pageTitle.contains("Bootcamps"));
-
-    }
+//    @Test
+//    public void test01(){
+//    //techproeducation ana sayfasına git ve title'ın "Bootcamps" icerdigini test edin.
+//        driver.get("https://www.techproeducation.com");
+//
+//        String pageTitle = driver.getTitle();
+//        Assert.assertTrue(pageTitle.contains("Bootcamps"));
+//
+//    }
             /*
             *Alertleri nasil automate edersin? How to handle alerts in selenium?
              -Alertler javascript ile olusur. Inspect edilemezler. Oncelikle alerte switch etmemiz gerekir.
