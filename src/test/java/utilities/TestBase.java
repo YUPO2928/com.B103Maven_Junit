@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
  public class TestBase {
+
     //TestBase i abstract yapmamızın sebebi bu sınıfın objesini olusturmak istemiyorum.
     //TestBase testBase = new TestBase(); -> YAPILMAZ
     //Amacım bu sınıfı extend edip içindeki method'ları kullanmak
@@ -29,20 +30,29 @@ import java.time.Duration;
 
     @After
     public  void tearDown(){
-        driver.close();
+        //driver.close();
     }
 
-//    @Test
-//    public void test01(){
-//    //techproeducation ana sayfasına git ve title'ın "Bootcamps" icerdigini test edin.
-//        driver.get("https://www.techproeducation.com");
-//
-//        String pageTitle = driver.getTitle();
-//        Assert.assertTrue(pageTitle.contains("Bootcamps"));
-//
-//    }
-            /*
-            *Alertleri nasil automate edersin? How to handle alerts in selenium?
-             -Alertler javascript ile olusur. Inspect edilemezler. Oncelikle alerte switch etmemiz gerekir.
-             */
+     //    MULTIPLE WINDOW
+     //    1 parametre alir : Gecis Yapmak Istedigim sayfanin Title
+     //    ORNEK:
+     //    driver.get("https://the-internet.herokuapp.com/windows");
+     //    switchToWindow("New Window");
+     //    switchToWindow("The Internet")
+     public static void switchToWindow(String targetTitle) {
+         String origin = driver.getWindowHandle();
+         for (String handle : driver.getWindowHandles()) {
+             driver.switchTo().window(handle);
+             if (driver.getTitle().equals(targetTitle)) {
+                 return;
+             }
+         }
+         driver.switchTo().window(origin);
+     }
+
+    /*
+       * Alertleri nasil automate edersin? How to handle alerts in selenium?
+       * Alertler javascript ile olusur. Inspect edilemezler. Oncelikle alerte switch etmemiz gerekir.
+    */
+
 }
