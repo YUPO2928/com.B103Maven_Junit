@@ -1,6 +1,9 @@
 package homework;
 
-public class HW_01 {
+import org.junit.Test;
+import utilities.TestBase;
+
+public class HW_01 extends TestBase {
 
     /*
 
@@ -14,5 +17,11 @@ public class HW_01 {
 
      */
 
+    @Test
+    public void test01(){
+        
+
+
+    }
 
 }

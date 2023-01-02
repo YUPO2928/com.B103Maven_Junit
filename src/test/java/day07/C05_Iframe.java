@@ -1,9 +1,15 @@
 package day07;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import utilities.TestBase;
+
+import java.time.Duration;
 
 public class C05_Iframe extends TestBase {
 
@@ -16,6 +22,19 @@ public class C05_Iframe extends TestBase {
         3- Son olarak footer daki ‘Powered By’ yazisini varligini test edin.
 
         */
+     WebDriver driver;
+
+    @Before
+    public void setup() {
+
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.get("http://tutorialsninja.com/demo/index.php?route=common/home");
+
+    }
+
 
     @Test
     public void iframeTest(){
