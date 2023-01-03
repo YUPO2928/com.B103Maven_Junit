@@ -11,6 +11,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Iframe_ClassWork_1  {
@@ -53,9 +55,11 @@ public class Iframe_ClassWork_1  {
         animal.stream().forEach(t-> t.click());
         // ana iframe'e geri dön
         driver.switchTo().defaultContent();
+        driver.navigate().refresh(); //defaultContent() ile aynı işe yarar.
 
         //formu doldurun,(Formu istediğiniz metinlerle doldurun)
         // uygula butonuna tıklayın.
+        //1.YOL -------------
         driver.findElement(By.id("text")).sendKeys("Yunus",
                 Keys.TAB, "POYRAZ",
                 Keys.TAB, "ANKARA",
@@ -70,6 +74,14 @@ public class Iframe_ClassWork_1  {
                 Keys.TAB,
                 Keys.ENTER);
 
-    }
 
+        //2.YOL -------------
+    List<WebElement> list = driver.findElements(By.xpath("//input[@class='mdl-textfield__input']"));
+    List<String> veriler = new ArrayList<>(Arrays.asList(
+            "Erol","Evren","selenium","lambda","java","sql","gitgithub","fsd","dfasf","lkjl","asdasd","asd","sda"));
+
+        for (int i = 0; i < list.size(); i++) {
+        list.get(i).sendKeys(veriler.get(i));
+        }
+   }
 }

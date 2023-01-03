@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
- public class TestBase {
+ public abstract class TestBase {
 
     //TestBase i abstract yapmamızın sebebi bu sınıfın objesini olusturmak istemiyorum.
     //TestBase testBase = new TestBase(); -> YAPILMAZ
