@@ -32,7 +32,7 @@ public class P17_windowHandle03 extends TestBase {
 
         // Elemental Selenium linkine tıklayın.
         elementSeleniumLinki.click();
-        List<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
+        List<String> windowHandles = new ArrayList<>(driver.getWindowHandles());
         System.out.println(windowHandles);
         driver.switchTo().window(windowHandles.get(1));
 

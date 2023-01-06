@@ -48,9 +48,10 @@ public class P16_windowHandle02 extends TestBase {
         driver.close();
 
         //    - Sonra diğer sekmeyide kapatalım.
+        driver.switchTo().window(ilkWindow);
 
 
-
+        //Yeni
 
 
     }
