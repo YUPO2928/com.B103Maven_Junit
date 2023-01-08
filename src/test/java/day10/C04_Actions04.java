@@ -26,7 +26,7 @@ public class C04_Actions04 extends TestBase {
         driver.get("https://jqueryui.com/droppable/");
         //KAYNAK VE HEDEF ELEMENTLERİ IFRAME ICINDE
         driver.switchTo().frame(0);
-        WebElement kaynak = driver.findElement(By.id("draggablev"));
+        WebElement kaynak = driver.findElement(By.id("draggable"));
         WebElement hedef = driver.findElement(By.id("droppable"));
 
         Actions actions = new Actions(driver);
@@ -41,7 +41,7 @@ public class C04_Actions04 extends TestBase {
         driver.get("https://jqueryui.com/droppable/");
         //KAYNAK VE HEDEF ELEMENTLERİ IFRAME ICINDE
         driver.switchTo().frame(0);
-        WebElement kaynak = driver.findElement(By.id("draggablev"));
+        WebElement kaynak = driver.findElement(By.id("draggable"));
         WebElement hedef = driver.findElement(By.id("droppable"));
 
         Actions actions = new Actions(driver);
@@ -61,7 +61,7 @@ public class C04_Actions04 extends TestBase {
         driver.get("https://jqueryui.com/droppable/");
 
         driver.switchTo().frame(0);
-        WebElement kaynak = driver.findElement(By.id("draggablev"));
+        WebElement kaynak = driver.findElement(By.id("draggable"));
         WebElement hedef = driver.findElement(By.id("droppable"));
 
         Actions actions = new Actions(driver);
