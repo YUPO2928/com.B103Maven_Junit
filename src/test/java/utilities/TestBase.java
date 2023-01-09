@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -87,6 +88,49 @@ public class TestBase {
        * Alertleri nasil automate edersin? How to handle alerts in selenium?
        * Alertler javascript ile olusur. Inspect edilemezler. Oncelikle alerte switch etmemiz gerekir.
     */
+
+
+    //    ACTIONS_RIGHT CLICK
+    public static void rightClickOnElementActions(WebElement element) {
+        Actions actions = new Actions(driver);
+        actions.contextClick(element).perform();
+    }
+    //ACTIONS_DOUBLE CLICK
+    public static void doubleClick(WebElement element) {
+        new Actions(driver).doubleClick(element).build().perform();
+    }
+    //    ACTIONS_HOVER_OVER
+    public static void hoverOverOnElementActions(WebElement element) {
+//        Actions actions = new Actions(driver);
+        new Actions(driver).moveToElement(element).perform();
+    }
+    //    ACTIONS_SCROLL_DOWN
+    public static void scrollDownActions() {
+        new Actions(driver).sendKeys(Keys.PAGE_DOWN).perform();
+    }
+    //    ACTIONS_SCROLL_UP
+    public static void scrollUpActions() {
+        new Actions(driver).sendKeys(Keys.PAGE_UP).perform();
+    }
+    //    ACTIONS_SCROLL_RIGHT
+    public static void scrollRightActions(){
+        new Actions(driver).sendKeys(Keys.ARROW_RIGHT).sendKeys(Keys.ARROW_RIGHT).perform();
+    }
+    //    ACTIONS_SCROLL_LEFT
+    public static void scrollLeftActions(){
+        new Actions(driver).sendKeys(Keys.ARROW_LEFT).sendKeys(Keys.ARROW_LEFT).perform();
+    }
+    //    ACTIONS_DRAG_AND_DROP
+    public static void dragAndDropActions(WebElement source, WebElement target) {
+//        Actions actions = new Actions(driver);
+        new Actions(driver).dragAndDrop(source,target).perform();
+    }
+    //    ACTIONS_DRAG_AND_DROP_BY
+    public static void dragAndDropActions(WebElement source, int x, int y) {
+//        Actions actions = new Actions(driver);
+        new Actions(driver).dragAndDropBy(source,x,y).perform();
+    }
+
 
 
     //    DYNAMIC SELENIUM WAITS:

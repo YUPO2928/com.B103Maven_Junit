@@ -7,11 +7,14 @@ public class C03_FileExist {
     @Test
     public void isExistTest(){
         String userDIR = System.getProperty("user.dir");
-        System.out.println(userDIR);///Users/techproed/IdeaProjects/B103MavenJUnit
+        System.out.println(userDIR);//C:\Users\Yunus\IdeaProjects\com.B103Maven_Junit
+
         String userHOME =  System.getProperty("user.home");
-        System.out.println(userHOME);///Users/techproed
+        System.out.println(userHOME);//C:\Users\Yunus
+
         //logo.jpeg indirip MASAUSTUNE kaydedin
-//        Logo masaustunde : /Users/techproed/Desktop
+//        Logo masaustunde : /Users/Yunus/Desktop
+
         String dosyaYolu = userHOME +"/Desktop/logo.jpeg";
 //        String dosyaYolu = userHOME +"\\Desktop\\logo.jpeg";
         System.out.println(dosyaYolu);
