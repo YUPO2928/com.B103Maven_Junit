@@ -11,7 +11,7 @@ import utilities.TestBase;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HWActions01 extends TestBase {
+public class P24_Actions extends TestBase {
 
     @Test
     public void test01() throws InterruptedException {
@@ -24,8 +24,8 @@ public class HWActions01 extends TestBase {
         //clickWithText("div.card-body>h5","Alerts, Frame & Windows");
         Actions actions = new Actions(driver);
 
-        //actions.moveToElement(kutu).perform();
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        actions.moveToElement(kutu).perform();
+        //actions.sendKeys(Keys.PAGE_DOWN).perform();
         driver.findElement(By.xpath("(//*[@class='card mt-4 top-card'])[3]")).click();
 
         //""Please select an item from left to start practice."" yazısının görünür olduğunu doğrula
