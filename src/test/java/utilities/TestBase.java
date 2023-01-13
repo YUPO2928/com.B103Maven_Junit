@@ -1,6 +1,7 @@
 package utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,8 +14,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class TestBase {
@@ -131,10 +136,10 @@ public class TestBase {
         new Actions(driver).dragAndDropBy(source,x,y).perform();
     }
 
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     //    DYNAMIC SELENIUM WAITS:
-//===============Explicit Wait==============//-----------------------------------------------------------------------------------------------------------------------------
+//===============Explicit Wait==============//----------------------------------------------------------------------------------------------------------------------------------------------
     public static WebElement waitForVisibility(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOf(element));
@@ -189,4 +194,37 @@ public class TestBase {
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
         return element;
     }
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //   SCREENSHOTS
+    public void takeScreenShotOfPage() throws IOException, IOException {
+//        1. Take screenshot
+        File image = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+
+//       2. Save screenshot
+//        getting the current time as string to use in teh screenshot name, previous screenshots will be kept
+        String currentTime = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+
+//       3. Path of screenshot save folder               folder / folder    /file name
+        String path = System.getProperty("user.dir")+"/test-output/Screenshots/"+currentTime+"image.png";
+        FileUtils.copyFile(image,new File(path));
+    }
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    //    SCREENSHOT
+//    @params: WebElement
+//    takes screenshot
+    public void takeScreenshotOfElement(WebElement element) throws IOException {
+
+//        1. take screenshot
+        File image = element.getScreenshotAs(OutputType.FILE);
+
+//        2. save screenshot path
+        String currentTime = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+        String path = System.getProperty("user.dir")+"/test-output/Screenshots/"+currentTime+"image.png";
+        FileUtils.copyFile(image,new File(path));
+    }
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 }

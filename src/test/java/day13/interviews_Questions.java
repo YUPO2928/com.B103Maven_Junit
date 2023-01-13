@@ -30,7 +30,7 @@ public class interviews_Questions {
     ***************************************************************************************************************************************************
 
      Seleniumda aldigin 5 exception?
-    Null pointer, no such element, time out, slale element reference, web driver
+    Null pointer, no such element, time out, slate element reference, web driver
 
     Genel olarak exception aldiginda bozum yolun nedir?
     Hata mesajini oku
@@ -44,7 +44,7 @@ public class interviews_Questions {
     Test Base (Driver sinifinda) implicit wait kullanıyorum. Cogu problemi bozuyor Cozemedigi durumlarda explicit wait kullanıyorum.
 
     Neden Explicit wait?
-    Explicit wait element e ouzel yazilabilir. Yerel cozum gerektiğinde explicit wait I kullanmak zorundayiz.
+    Explicit wait element e ozel yazilabilir. Yerel cozum gerektiğinde explicit wait I kullanmak zorundayiz.
 
     Senkronize(bekleme) problemlerini nasıl çözersin?
     Selenium waitlerini kullanarak. Implicit wait driver im da var, ama yetmedigi durumlarda explicit wait kullanirim.
