@@ -35,9 +35,24 @@ public class C02_WebTables extends TestBase {
         // Parameter 1 = row numarasi
         // Parameter 2 = column numarasi
         // printData(2,3);  => 2nd row, 3rd column daki datayı print etsin
+    }
 
 
+    public void printData (int satır, int sutun){
+        driver.get("http://the-internet.herokuapp.com/tables");
+        String myXpath = "//table[@id='table1']//tbody//tr["+satır+"]//td["+sutun+"]";
+        System.out.println(driver.findElement(By.xpath(myXpath)).getText());
 
     }
 
+    @Test
+    public void printDataTest(){
+        printData(2,3);
+    }
+
+
 }
+
+
+
+
