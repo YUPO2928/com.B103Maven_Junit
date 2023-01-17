@@ -29,6 +29,8 @@ public class C02_AlertsAccept extends TestBase {
         String expectedResult = "You successfully clicked an alert";
         Assert.assertEquals(expectedResult,actualResult);
 
+        
+
     }
 
        /*

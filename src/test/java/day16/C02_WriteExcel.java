@@ -27,7 +27,10 @@ public class C02_WriteExcel {
         //Sheet sheet1 = workBook.getSheetAt(0); // index ile sayfaya gitme; ilk index 0'dan baslar.
         Sheet sheet1 = workBook.getSheet("Sheet1"); // sheet in ism ile sayfaya gitme. "Sheet1" isimli sayfayı acar.
 
+        //4- ILK SATIRA GIT / Row
+        Row row1 = sheet1.getRow(0); //ilk satıra git.
 
+        //5- ILK SATIR 3.SUTUN CREATE ET. (CREATE=YAZDIR)
         Cell cell3 = row1.createCell(2);
 
         //6- NUFUZ YAZDIR.
@@ -38,10 +41,7 @@ public class C02_WriteExcel {
         workBook.write(fileOutputStream);
 
         sheet1.getRow(1).createCell(2).setCellValue("4500000");
-        sheet1.getRow(2).createCell(2).setCellV        //4- ILK SATIRA GIT / Row
-        Row row1 = sheet1.getRow(0); //ilk satıra git.
-
-        //5- ILK SATIR 3.SUTUN CREATE ET. (CREATE=YAZDIR)alue(1000000);
+        sheet1.getRow(2).createCell(2).setCellValue(1000000);
 
 
 
