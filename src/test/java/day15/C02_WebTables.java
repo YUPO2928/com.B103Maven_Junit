@@ -1,5 +1,7 @@
 package day15;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -8,6 +10,8 @@ import utilities.TestBase;
 import java.util.List;
 
 public class C02_WebTables extends TestBase {
+
+    private static Logger logger = LogManager.getLogger(C02_WebTables.class.getName());
 
     @Test
     public void WebTablesTest(){
@@ -18,6 +22,7 @@ public class C02_WebTables extends TestBase {
         // Task 1 : Table1’i print edin.
         String table1 = driver.findElement(By.xpath("//table[@id='table1']")).getText();
         System.out.println(table1);
+        logger.info("TABLE 1 VERILER");
 
         // Task 2 : 3. Row’ datalarını print edin.
         List <WebElement> row3Elements = driver.findElements(By.xpath("//table[@id='table1']//tbody//tr[3]//td"));

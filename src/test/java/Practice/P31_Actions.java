@@ -28,6 +28,8 @@ public class P31_Actions extends TestBase {
         }
 
         actions.release().build().perform(); // release() => mause basılı tuttugumuzdan bırakmak için
+                                             // Build method u bütün actionları birleştiriyor.
+
         driver.findElement(By.xpath("//*[.='Clear']")).click();
 
 

@@ -3,13 +3,11 @@ package homework;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import utilities.TestBase;
 
-import java.security.PublicKey;
 import java.util.Set;
 
-public class HM_02 extends TestBase {
+public class HW_02 extends TestBase {
 
     /*
     https://testcenter.techproeducation.com/index.php?page=multiple-windows

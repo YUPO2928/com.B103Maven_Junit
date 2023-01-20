@@ -227,5 +227,40 @@ public class TestBase {
 
 
 
+    // input elementindeki degerleri al.
+    // input elementindeki degerleri(value) al
+    // Belirli bir WebElement'in id değerini String olarak alır ve value attribute değerini String olarak döndürür
+    // return
+    // document HTML'E GIT
+    // .getElementById('" + idOfElement + "') ID'si VERILEN ELEMENTI BUL
+    // .value")
+    // .toString();
+    public void getValueByJS(String idofElement){
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        String text = js.executeScript("return document.getElementById('"+idofElement+"').value" ).toString(); // belirli bir webelement'in value attribute un değerini dönderecek
+        System.out.println("kutudaki deger = " + text);
+
+    }
 
 }
+
+ /*
+
+
+--------------------------------------------------------------INTERVIEWS QUESTIONS ---------------------------------------------------------
+
+    1) Javascript Executor nedir?
+    2) Ne zaman ve nasil kullanilir?
+    3) Sayfayi asagi veya yukari kaydirma islemi seleniumda nasil yapilir
+    4) Bir kutucuktaki yani inputtaki elemanin metni nasil alinabilir?
+    5) Seleniumda click yaparken problem yasadigin oldu mu? (ya da soyle sorulabilir) Selenium outomasyonunda ne tur problemler yasadin?
+
+
+ */
+
+
+
+
+
+
+

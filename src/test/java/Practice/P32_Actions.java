@@ -14,7 +14,7 @@ public class P32_Actions extends TestBase {
     /*
      -https://jqueryui.com/slider/#colorpicker adrese gidiniz
      -Kutucuk içindeki rengi önce kırmızı sonra sarı yapınız
-     -Sarı olduğunu test edelim
+     -Sarı olduğunu test edelim.
      */
 
     @Test
@@ -23,11 +23,13 @@ public class P32_Actions extends TestBase {
         driver.get("https://jqueryui.com/slider/#colorpicker");
         WebElement iframe = driver.findElement(By.xpath("//*[@class='demo-frame']"));
         driver.switchTo().frame(iframe);
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.PAGE_DOWN);
 
         //-Kutucuk içindeki rengi önce kırmızı sonra sarı yapınız
         WebElement yesilTus = driver.findElement(By.xpath("(//*[@class='ui-slider-handle ui-corner-all ui-state-default'])[2]"));
         WebElement maviTus = driver.findElement(By.xpath("(//*[@class='ui-slider-handle ui-corner-all ui-state-default'])[3]"));
-        Actions actions = new Actions(driver);
+
         actions.dragAndDropBy(yesilTus,-175,0);//Genellikle slider' lar için bu method kullanılır, koordinatlar yazılır.
         actions.dragAndDropBy(maviTus,-80,0);
         actions.dragAndDropBy(yesilTus,301,0).release().build().perform();
