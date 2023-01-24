@@ -1,5 +1,8 @@
 package utilities;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
@@ -31,6 +34,12 @@ public class TestBase {
     //driver objesini olusturduk. Driver ya "public" ya da "protected" olmalı. Sebebi child class larda gorulmesi
     protected static WebDriver driver;
 
+    //--------------------------EXTEND REPORTS OBJELERİ--------------------------------------------------------------------------------------------------------------------
+    protected ExtentReports extentReports;//Raporlamayı başlatırız
+    protected ExtentHtmlReporter extentHtmlReporter;//Raporumu HTLM formatında düzenler
+    protected ExtentTest extentTest; //Test aşamalarına extentTest objesi ile bilgi ekleriz
+    //----------------------------------------------------------------------------------------------------------------------------------------------------
+
     //setup
     @Before
     public void setup(){
@@ -39,16 +48,38 @@ public class TestBase {
         driver.manage().window().maximize();
         //Thread.sleep(15); ==> HARD WAIT (NE OLURSA OLSUN TAM 15 SN BEKLE), JAVA DAN GELIR
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15)); // 15 SN KADAR GEREKTIGINDE BEKLE (SELENIUM DAN GELIR)
-    }
+
+//--------------------------EXTEND REPORTS--------------------------------------------------------------------------------------------------------------------
+
+            /*
+            1- <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports --> pom.xml'e yüklemek
+            2- Eğer extentReport almak istersek ilk yapmamız gereken ExtentReport class'ından bir obje oluşturmak
+            3- HTLM formatında düzenleneceği için ExtentHtmlReporter class'ından obje oluşturmak
+             */
+
+
+            extentReports = new ExtentReports();
+            String tarih = new SimpleDateFormat("hh_mm_ss_ddMMyyyy").format(new Date());
+            String dosyaYolu = "target/ExtentReports/htmlreport"+tarih+".html";
+            extentHtmlReporter = new ExtentHtmlReporter(dosyaYolu);
+            extentReports.attachReporter(extentHtmlReporter);
+
+            //Raporda gözükmesini istediğimiz bilgiler için
+            extentReports.setSystemInfo("Browser","Chrome");
+            extentReports.setSystemInfo("Tester","Erol");
+            extentHtmlReporter.config().setDocumentTitle("Extent Report");
+            extentHtmlReporter.config().setReportName("Test Sonucu");
+
+        }
 
     @After
-    public void tearDown(){
-//        waitFor(5);
-//        driver.close();
+    public void tearDown() {
+        //driver.quit();
+        extentReports.flush(); //Raporlamayı bitirir.
     }
 
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//         MULTIPLE WINDOW
+//------------------------------MULTIPLE WINDOW--------------------------------------------------------------------------------------------------------------------------------------------------
+//
 //         1 parametre alir : Gecis Yapmak Istedigim sayfanin Title
 //         ORNEK:
 //         driver.get("https://the-internet.herokuapp.com/windows");
@@ -241,6 +272,7 @@ public class TestBase {
         System.out.println("kutudaki deger = " + text);
 
     }
+
 
 }
 
