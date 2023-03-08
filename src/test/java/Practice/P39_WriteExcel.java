@@ -36,10 +36,9 @@ public class P39_WriteExcel extends TestBase {
         Row row = sheet.getRow(3);
         Cell cell = row.getCell(0);
         row.removeCell(cell);
+
         FileOutputStream fos = new FileOutputStream(dosyaYolu);
         workbook.write(fos);
     }
-
-
 
 }

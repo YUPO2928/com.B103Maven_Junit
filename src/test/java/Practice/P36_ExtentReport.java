@@ -27,5 +27,6 @@ public class P36_ExtentReport extends TestBase {
         //Start buttonuna bastıktan sonra Loading webelementi kaybolana kadar bekledik
         assert driver.findElement(By.xpath("//*[text()='Hello World!']")).isDisplayed();
         extentTest.pass("WE beklendi");
+
     }
 }
